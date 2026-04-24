@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearcHomes - Investigação Forense</title>
+    <link rel="stylesheet" href="prototipo.css">
+</head>
+<body>
+
+    <header>
+        <h1>SearcHomes</h1>
+        <p><strong>DEPARTAMENTO DE INVESTIGAÇÃO DE FATOS</strong></p>
+        <p><small><em>"A ciência da dedução a serviço da verdade documental."</em></small></p>
+        <div class="history-column">
+  <div class="column-header">
+    <span>📜 Histórico completo</span>
+    <button class="history-button" id="clearHistoryBtn">Limpar histórico</button>
+  </div>
+  <div class="messages-area" id="historyMessages"></div>
+</div>
+    </header>
+
+    <main>
+        <section id="identificacao">
+            <h2>Identificação do Perito</h2>
+            <ul>
+                <li><strong>Agente Responsável:</strong> SearcHomes</li>
+                <li><strong>Método:</strong> Análise Forense de Dados</li>
+                <li><strong>Estatuto:</strong> Confidencial</li>
+            </ul>
+            <p>
+                Estimado consulente, queira por gentileza apresentar o objeto de vossa curiosidade. 
+                Procederei com o rigor formal que o caso exige.
+            </p>
+        </section>
+
+        <section id="chat-interativo">
+            <h2>Dossiê de Diálogo</h2>
+            
+            <div class="bot-box">
+                <p><strong>SearcHomes:</strong> Aguardo vossas coordenadas para iniciar a investigação. Qual o caso a ser analisado?</p>
+            </div>
+
+            <form>
+                <label for="entrada-caso">Deposite aqui vossa pergunta ou pista:</label><br>
+                <input type="text" id="entrada-caso" placeholder="Ex: A Grande Exposição de 1851...">
+                <button type="submit">SUBMETER INVESTIGAÇÃO</button>
+            </form>
+        </section>
+
+        <section id="relatorio-modelo">
+            <h2>Relatório de Constatações (Modelo)</h2>
+            <article>
+                <p><strong>ASSUNTO:</strong> [Tema em Análise]</p>
+                <p><strong>DATA:</strong> 23 de Abril de 1895</p>
+                <hr>
+                <p><em>"Conforme os registros coletados, os fatos indicam que..."</em></p>
+            </article>
+        </section>
+    </main>
+
+    <aside>
+        <button class="btn-historico">Histórico</button>
+        <p style="font-size: 0.7rem; margin-top: 20px; text-align: center; color: #3d2b1f; opacity: 0.6;">
+            Propriedade SearcHomes 1895-2026.
+        </p>
+    </aside>
+
+</body>
+</html>
