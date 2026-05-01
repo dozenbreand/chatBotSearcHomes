@@ -13,8 +13,7 @@ class PromptMestre:
         """
     
         self.tarefa= """
-        -Voce deve responder a pergunta do usuario usando a
-        -base de dados do site para responder a pergunta
+        -Voce deve responder a pergunta do usuario usando sua base de dados ou atraves de pesquisas de sites confiaveis
         """
 
         self.restricao= """
@@ -25,7 +24,7 @@ class PromptMestre:
         
         self.formato= """
         -Voce deve responder de forma formal como se estivesse fazendo um Dossie 
-        -a resposta tem que ser feita em formato de texto
+        a resposta tem que ser feita em formato de texto
         """
 
     def montar_system_prompt(self) -> str:
