@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="aparencia.css">
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,19 +9,17 @@
 </head>
 <body>
 
-    <header>
-        <h1>SearcHomes</h1>
-        <p><strong>DEPARTAMENTO DE INVESTIGAÇÃO DE FATOS</strong></p>
-        <p><small><em>"A ciência da dedução a serviço da verdade documental."</em></small></p>
-        <div class="history-column">
-  <div class="column-header">
-    <span>📜 Histórico completo</span>
-    <button class="history-button" id="clearHistoryBtn">Limpar histórico</button>
-  </div>
-  <div class="messages-area" id="historyMessages"></div>
-</div>
-    </header>
-
+   <header>
+    <div class="header-container">
+        <img src="logo2_0.png" alt="Logo SearcHomes" class="header-logo">
+        <div class="header-textos">
+            <h1>SearcHomes</h1>
+            <p><strong>DEPARTAMENTO DE INVESTIGAÇÃO DE FATOS</strong><br>
+            <small><em>"A ciência da dedução a serviço da verdade documental."</em></small></p>
+        </div>
+    </div>
+    <!-- NÃO coloque a div .history-column aqui (removida) -->
+</header>
     <main>
         <section id="identificacao">
             <h2>Identificação do Perito</h2>
@@ -66,6 +65,97 @@
             Propriedade SearcHomes 1895-2026.
         </p>
     </aside>
+<script>
+    // ------------------------------
+    // CHATBOT INTERATIVO - SearcHomes Forense
+    // ------------------------------
+    const chatMessagesDiv = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const userInput = document.getElementById('entrada-caso');
+    const historyPanel = document.getElementById('historyPanel');
+    const toggleBtn = document.getElementById('toggleHistoryBtn');
 
+    let conversaHistorico = [];
+
+    function addMessage(tipo, texto) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add(tipo === 'user' ? 'user-message' : 'bot-message');
+        if (tipo === 'bot') {
+            messageDiv.innerHTML = `<strong>SearcHomes:</strong> ${texto}`;
+        } else {
+            messageDiv.innerHTML = `<strong>Vossa mercê:</strong> ${texto}`;
+        }
+        chatMessagesDiv.appendChild(messageDiv);
+        chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+        conversaHistorico.push({ tipo, texto });
+        if (historyPanel) atualizarPainelHistorico();
+    }
+
+    function atualizarPainelHistorico() {
+        if (!historyPanel) return;
+        if (conversaHistorico.length === 0) {
+            historyPanel.innerHTML = `<p><strong>Arquivo de interrogatórios:</strong><br>Nenhuma interação registrada ainda.</p>`;
+            return;
+        }
+        let html = `<strong>📜 Registro cronológico:</strong><br>`;
+        conversaHistorico.forEach(msg => {
+            const prefixo = msg.tipo === 'user' ? '🧐 Consultor:' : '🕵️‍♂️ SearcHomes:';
+            html += `<p>${prefixo} ${msg.texto}</p>`;
+        });
+        historyPanel.innerHTML = html;
+    }
+
+    function getBotResposta(userQuestion) {
+        const q = userQuestion.toLowerCase().trim();
+        if (q.includes('exposição') || q.includes('1851')) {
+            return "A Grande Exposição de 1851, realizada no Hyde Park, Londres, foi um marco da era vitoriana. Meus arquivos indicam que o famoso diamante Koh-i-Noor ali exibido guarda mistérios até hoje. Deseja aprofundar?";
+        } else if (q.includes('suspeito') || q.includes('quem')) {
+            return "De acordo com os protocolos de dedução, todo suspeito carrega vestígios. Forneça mais pistas: local, data ou objeto envolvido para que eu cruze os dados.";
+        } else if (q.includes('forense') || q.includes('investigação')) {
+            return "A análise forense documental exige três pilares: autenticidade, cadeia de custódia e contexto histórico. Em que documento ou evidência deseja que eu me debruce?";
+        } else if (q.includes('ajuda') || q.includes('instruções')) {
+            return "Pode me interrogar sobre qualquer fato. Exemplos: 'Quais os indícios do caso dos selos perdidos?', 'Descreva o método de comparação caligráfica' ou 'O que ocorreu na noite de 23 de outubro?'";
+        } else if (q.includes('obrigado') || q.includes('grato')) {
+            return "Sempre às ordens, consulente. A verdade documental é minha única doutrina.";
+        } else if (q === "" || q.length < 3) {
+            return "Peço que formule vossa pergunta com mais clareza para que eu possa aplicar os métodos dedutivos.";
+        } else {
+            return "Registro sua pista em meu dossiê. Necessito de mais elementos para uma conclusão forense. Pode detalhar o contexto, datas ou nomes envolvidos?";
+        }
+    }
+
+    if (chatForm) {
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const mensagemUsuario = userInput.value.trim();
+            if (mensagemUsuario === "") return;
+
+            addMessage('user', mensagemUsuario);
+            const respostaBot = getBotResposta(mensagemUsuario);
+            setTimeout(() => {
+                addMessage('bot', respostaBot);
+            }, 300);
+            userInput.value = '';
+            userInput.focus();
+        });
+    }
+
+    if (toggleBtn && historyPanel) {
+        toggleBtn.addEventListener('click', () => {
+            historyPanel.classList.toggle('ativo');
+            if (historyPanel.classList.contains('ativo')) {
+                atualizarPainelHistorico();
+            }
+        });
+    }
+
+    // Mensagem inicial no histórico
+    window.addEventListener('DOMContentLoaded', () => {
+        if (conversaHistorico.length === 0) {
+            conversaHistorico.push({ tipo: 'bot', texto: "Aguardo vossas coordenadas para iniciar a investigação. Qual o caso a ser analisado?" });
+            atualizarPainelHistorico();
+        }
+    });
+</script>
 </body>
 </html>

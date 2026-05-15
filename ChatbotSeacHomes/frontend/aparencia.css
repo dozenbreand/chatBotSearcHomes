@@ -1,0 +1,406 @@
+/* =============================================
+   prototipo.css - SearcHomes Forense (Corrigido)
+   Com logo ao lado do título, layout alinhado
+   ============================================= */
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2c2418;
+    font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;
+    color: #2d2b26;
+    line-height: 1.5;
+    padding: 24px 28px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "header header"
+        "main aside"
+        "footer footer";
+    gap: 28px 32px;
+    background-image: radial-gradient(circle at 15% 30%, rgba(70, 50, 35, 0.15) 2%, transparent 2.5%);
+    background-size: 28px 28px;
+}
+
+/* ========== CABEÇALHO COM LOGO E TÍTULO ========== */
+/* HEADER com logo e título lado a lado */
+/* HEADER com logo e título lado a lado */
+header {
+    grid-area: header;
+    background: #fef3e0;
+    background-image: linear-gradient(145deg, #fff3e6 0%, #f7e8d4 100%);
+    padding: 18px 32px;
+    border-radius: 28px 28px 20px 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 245, 225, 0.8);
+    border-bottom: 4px solid #b48c5c;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+/* LOGO BRANCA – COM FUNDO MARROM ELEGANTE */
+.header-logo {
+    height: 80px;
+    width: auto;
+    background-color: 	rgba(101, 67, 33, 0.5);   /* marrom que combina com o tema */
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 245, 200, 0.6);
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+    transition: all 0.2s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.02);
+    background-color: rgba(70, 40, 20, 0.55);
+
+}
+/* Grupo de textos */
+.header-textos h1 {
+    font-size: 2.7rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #2c1a12;
+    text-shadow: 3px 3px 0 #d6bc92;
+    border-left: 6px solid #b1622c;
+    padding-left: 22px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.header-textos p {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #4e3a28;
+}
+
+.header-textos p strong {
+    font-weight: 700;
+    background: #e7d9c4;
+    padding: 2px 8px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+}
+
+.header-textos p small {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+/* ========== MAIN (Área de investigação) ========== */
+main {
+    grid-area: main;
+    background: #fffbf0;
+    border-radius: 28px;
+    padding: 20px 28px;
+    box-shadow: 10px 12px 18px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e8d6bc;
+}
+
+#identificacao {
+    background: #ede3d2;
+    padding: 14px 20px;
+    border-radius: 24px;
+    margin-bottom: 28px;
+    border-left: 10px solid #ad7a4b;
+}
+
+#identificacao h2 {
+    font-size: 1.5rem;
+    border-bottom: 1px dashed #b48c5c;
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #3b2a1c;
+}
+
+#identificacao ul {
+    list-style: none;
+    margin: 12px 0;
+}
+
+#identificacao li {
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+#identificacao p {
+    font-style: italic;
+    background: #fffaf0;
+    padding: 10px 12px;
+    border-radius: 18px;
+    color: #2d2b1f;
+}
+
+#identificacao::after {
+    content: "⚖️ SELO FORENSE ⚖️";
+    display: block;
+    text-align: right;
+    font-size: 0.55rem;
+    color: #ad7a55;
+    margin-top: 10px;
+}
+
+#chat-interativo h2 {
+    font-size: 1.8rem;
+    border-left: 10px solid #b1622c;
+    padding-left: 15px;
+    margin: 20px 0 16px 0;
+    color: #452e1b;
+}
+
+/* Área de mensagens do chat */
+.chat-messages {
+    background: #fef7ed;
+    border-radius: 28px;
+    padding: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #e2cfb0;
+    box-shadow: inset 0 0 0 1px #fffcf3, 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.bot-message, .user-message {
+    margin-bottom: 16px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    max-width: 85%;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.bot-message {
+    background: #e7ddce;
+    border-left: 5px solid #bc8f64;
+    border-radius: 20px 20px 20px 4px;
+    color: #2c2418;
+}
+
+.user-message {
+    background: #d9cfb8;
+    border-right: 5px solid #8b6946;
+    border-radius: 20px 20px 4px 20px;
+    margin-left: auto;
+    text-align: right;
+    color: #2d281c;
+}
+
+/* Formulário do chat */
+form {
+    margin: 15px 0 10px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6b4c2c;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input#entrada-caso {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    background: #fffcf5;
+    border: 2px solid #cbad84;
+    border-radius: 60px;
+    font-family: 'Courier New', monospace;
+    color: #2b2b1a;
+    outline: none;
+    transition: 0.2s;
+    margin-bottom: 16px;
+}
+
+input#entrada-caso:focus {
+    border-color: #a5652c;
+    box-shadow: 0 0 0 3px rgba(171, 102, 43, 0.3);
+    background: #fffffa;
+}
+
+button[type="submit"] {
+    background: #7e5a3c;
+    border: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    color: #fef0df;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 0 #4a2e1a;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background: #9c734e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #4a2e1a;
+}
+
+button[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #4a2e1a;
+}
+
+/* Relatório modelo */
+#relatorio-modelo {
+    margin-top: 32px;
+    border-top: 2px dashed #cbb381;
+    padding-top: 18px;
+}
+
+#relatorio-modelo h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    background: #e2cfb3;
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 40px;
+    margin-bottom: 18px;
+}
+
+#relatorio-modelo article {
+    background: #faf1e2;
+    padding: 20px;
+    border-radius: 24px;
+    border: 1px solid #dfc9ab;
+    font-family: 'Georgia', serif;
+    box-shadow: inset 0 0 0 1px #fffcf6, 3px 4px 10px rgba(0,0,0,0.05);
+}
+
+#relatorio-modelo article p {
+    margin: 6px 0;
+}
+
+#relatorio-modelo hr {
+    margin: 12px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, #cfb27c, transparent);
+}
+
+/* ========== ASIDE (barra lateral com botão Histórico) ========== */
+aside {
+    grid-area: aside;
+    background: #eedfcb;
+    border-radius: 28px;
+    padding: 20px 18px;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #c9af87;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-historico {
+    background: #b48757;
+    border: none;
+    color: #2e2218;
+    font-weight: bold;
+    padding: 12px 20px;
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+    letter-spacing: 1px;
+    box-shadow: inset 0 1px 0 #efdbbc, 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-historico:hover {
+    background: #cfa46f;
+    transform: scale(0.98);
+    letter-spacing: 2px;
+}
+
+.historico-painel {
+    background: #fcf6ea;
+    border-radius: 24px;
+    padding: 12px;
+    border: 1px solid #ccb58b;
+    max-height: 350px;
+    overflow-y: auto;
+    display: none;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+}
+
+.historico-painel.ativo {
+    display: block;
+}
+
+.historico-painel p {
+    border-left: 3px solid #b98f63;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    background: #fffaf2;
+    border-radius: 12px;
+}
+
+aside p.rodape {
+    font-size: 0.6rem;
+    text-align: center;
+    color: #694f31;
+    margin-top: 10px;
+    font-family: monospace;
+    opacity: 0.7;
+}
+
+/* Scroll personalizado */
+.chat-messages::-webkit-scrollbar,
+.historico-painel::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-messages::-webkit-scrollbar-track,
+.historico-painel::-webkit-scrollbar-track {
+    background: #e5d8c4;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb,
+.historico-painel::-webkit-scrollbar-thumb {
+    background: #b48b54;
+    border-radius: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 880px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "main"
+            "aside";
+        padding: 16px;
+        gap: 20px;
+    }
+    .header-logo {
+        height: 55px;
+    }
+    .header-textos h1 {
+        font-size: 2rem;
+    }
+    .bot-message, .user-message {
+        max-width: 95%;
+    }
+}
